@@ -16,12 +16,12 @@
 - The sidebar element has a gap of 50px *******
 - The text elements in the sidebar are centered with grid *******
 - The article element should set grid columns using `repeat` along with the `auto-fit` and `minmax` properties *******
-- The article columns should have a minimum value of 250px and a maximum of 1fr unit
-- The article element has a gap of 15px
-- The card elements inside the article container have a height of 200px
-- The header and footer span across both columns
-- The sidebar only spans across the first column
-- The nav and article elements only span across the second column
+- The article columns should have a minimum value of 250px and a maximum of 1fr unit *******
+- The article element has a gap of 15px *******
+- The card elements inside the article container have a height of 200px *******
+- The header and footer span across both columns *******
+- The sidebar only spans across the first column *******
+- The nav and article elements only span across the second column *******
 
 */
 
@@ -42,17 +42,26 @@
 
 .header {
   background-color: #393f4d;
+  display: grid;
   grid-template-columns: 1fr 4fr;
+  grid-column: 1/3;
+  align-items: center;
 }
 
 .logo {
+  display: grid;
+  justify-content: flex-start;
 }
 
 .menu {
+  display: grid;
+  text-align: right;
 }
 
 .menu ul {
   display: grid;
+  list-style-type: none;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .menu ul,
@@ -65,6 +74,8 @@
   display: grid;
   gap: 50px;
   align-items: center;
+  grid-column: 1/2;
+  grid-row: 2/4;
 }
 
 .sidebar .photo {
@@ -76,6 +87,9 @@
 }
 
 .photo {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  height: 50%;
 }
 
 .sidebar .side-content {
@@ -88,17 +102,27 @@
 .nav {
   background-color: #ff7755;
   display: grid;
+  grid-column: 2/3;
+  /* grid-row: ; */
 }
 
 .nav ul li {
   font-size: 16px;
   text-transform: uppercase;
+  list-style-type: none;
+}
+
+.nav ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .article {
   background-color: #bccbde;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  grid-column: 2/3;
 }
 
 .article p {
@@ -112,6 +136,7 @@
   background-color: #ffffff;
   color: black;
   text-align: center;
+  height: 200px;
 }
 
 .card p {
@@ -127,6 +152,7 @@
 
 .footer {
   background-color: #393f4d;
+  grid-column: 1/3;
 }
 
 .footer p {
